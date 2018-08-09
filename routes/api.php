@@ -55,7 +55,7 @@ Route::group([
 
 ], function ($router) {
 
-    Route::post('insertar', 'usuario@create');
+    Route::post('insertar', 'UserController@create');
 
 
 

@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Institucion;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Auth;
 
-
-
-class AlumnoController extends Controller
+class InstitucionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,32 +22,9 @@ class AlumnoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
-         $name=$request->input('name')
-        $email=$request->input('email');
-        $password=$request->input('password');
-
-        $usuario=User::where('email',$email);
-        if($usuario!=null){
-            $usuario->name=$name;
-            $usuario->email=$email;
-            $usuario->password=Hash::make($passwrd);
-            $usuario->save();
-             return response()->json([
-                'name' => 'Abigail',
-                'state' => 'CA'
-            ]);
-        }else{
-            return response()->json([
-    'no' => 'no',
- 
-]);
-        }
-
-
-  
+        //
     }
 
     /**
@@ -68,10 +41,10 @@ class AlumnoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  \App\Institucion  $institucion
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
+    public function show(Institucion $institucion)
     {
         //
     }
@@ -79,10 +52,10 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  \App\Institucion  $institucion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit(Institucion $institucion)
     {
         //
     }
@@ -91,10 +64,10 @@ class AlumnoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Alumno  $alumno
+     * @param  \App\Institucion  $institucion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, Institucion $institucion)
     {
         //
     }
@@ -102,10 +75,10 @@ class AlumnoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  \App\Institucion  $institucion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy(Institucion $institucion)
     {
         //
     }

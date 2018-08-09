@@ -23,6 +23,9 @@ class CreateAlumnosTable extends Migration
             $table->string('apellido2', 15);
             $table->string('nombre1', 15);
             $table->string('nombre2', 15); 
+            $table->integer('anioRegistro');
+            $table->integer('ciudadInstitucionId');
+            $table->integer('institucionId');
             $table->timestamps();
         });
     }
