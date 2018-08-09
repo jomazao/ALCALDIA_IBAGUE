@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Alumno;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Auth;
+
+
 
 class AlumnoController extends Controller
 {
@@ -26,16 +29,26 @@ class AlumnoController extends Controller
     public function create(Request $request)
     {
 
-    if(Auth::check()) {
-          return response()->json([
+         $name=$request->input('name')
+        $email=$request->input('email');
+        $password=$request->input('password');
+
+        $usuario=User::where('email',$email);
+        if($usuario!=null){
+            $usuario->name=$name;
+            $usuario->email=$email;
+            $usuario->password=Hash::make($passwrd);
+            $usuario->save();
+             return response()->json([
                 'name' => 'Abigail',
                 'state' => 'CA'
-                ]);
-    }else{
-        return response()->json([
-                'no' => 'Abigail'
-                ]);
-    }
+            ]);
+        }else{
+            return response()->json([
+    'no' => 'no',
+ 
+]);
+        }
 
 
   

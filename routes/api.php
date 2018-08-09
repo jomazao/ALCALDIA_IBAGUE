@@ -31,7 +31,33 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
 
-    Route::post('/alumno', 'AlumnoController@create');
+});
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'alumnos'
+
+], function ($router) {
+
+    Route::post('insertar', 'AlumnoController@create');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+
+
+});
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'usuarios'
+
+], function ($router) {
+
+    Route::post('insertar', 'usuario@create');
+
+
 
 
 });
